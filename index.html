@@ -1,0 +1,142 @@
+<html>
+
+<head>
+  <title>Solar System - Computacao Grafica e Processamento de Imagens</title>
+
+  <!-- AFrame 1.0.0 devido a erro no particle system component -->
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+
+  <script
+    src="https://raw.githack.com/IdeaSpaceVR/aframe-particle-system-component/master/dist/aframe-particle-system-component.min.js"></script>
+  <script
+    src="https://raw.githack.com/thedart76/aframe-blink-teleportation/master/js/aframe-blink-teleportation-min.js"></script>
+
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+
+  <script src="js/script.js"></script>
+</head>
+
+<body>
+  <a-scene solar-system>
+    <a-assets>
+      <img id="sun-img" src="./assets/sun.png">
+      <img id="mercury-img" src="./assets/mercury.png">
+      <img id="venus-img" src="./assets/venus.png">
+      <img id="earth-img" src="./assets/earthwClouds.png">
+      <img id="mars-img" src="./assets/mars.png">
+      <img id="jupiter-img" src="./assets/jupiter.png">
+      <img id="saturn-img" src="./assets/saturn.png">
+      <img id="saturnRings-img" src="./assets/saturnRings.png">
+      <img id="stars-img" src="./assets/starsMilkyWay.png">
+      <img id="uranus-img" src="./assets/uranus.png">
+      <img id="neptune-img" src="./assets/neptune.png">
+
+      <a-asset-item id="spaceship-gltf" src="models/Spaceship.gltf"></a-asset-item>
+    </a-assets>
+
+
+    <a-entity position="0 0 0" particle-system="preset: dust; particleCount: 1000"></a-entity>
+
+    <a-entity light="type: point; intensity: 2.0; color: #f7f2bb;"></a-entity>
+
+    <a-entity id="spaceship" gltf-model="#spaceship-gltf" position="12 7 -12" scale="0.4 0.4 0.4" class="clickable"
+      blink-teleportation="pos: 12 8 -12"></a-entity>
+
+    <a-sphere id="sun" position="0 0 0" radius="3.5" src="#sun-img" class="clickable" material="shader: flat">
+    </a-sphere>
+
+    <a-entity animation="property: rotation; from:'0 0 0'; to:'0 360 0'; dur:96000; loop:true;">
+      <a-sphere id="mercury" position="5 0 -4" radius="0.5" src="#mercury-img" class="clickable"
+        blink-teleportation="pos: 4 0 -4"
+        animation="property: rotation; from:'0 45 45'; to:'0 360 0'; dur:24000; loop:true;">
+      </a-sphere>
+    </a-entity>
+
+    <a-entity animation="property: rotation; from:'0 0 0'; to:'0 360 0'; dur:96000; loop:true;">
+      <a-sphere id="venus" position="6 0 0" radius="0.75" src="#venus-img" class="clickable"
+        blink-teleportation="pos: 7 0 1"
+        animation="property: rotation; from:'0 45 45'; to:'0 360 0'; dur:24000; loop:true;">
+      </a-sphere>
+    </a-entity>
+
+    <a-entity animation="property: rotation; from:'0 0 0'; to:'0 360 0'; dur:96000; loop:true;">
+      <a-sphere id="earth" position="0 0 5" radius="1" src="#earth-img" class="clickable"
+        blink-teleportation="pos: 2 0 5"
+        animation="property: rotation; from:'0 45 45'; to:'0 360 0'; dur:24000; loop:true;">
+      </a-sphere>
+    </a-entity>
+
+    <a-entity animation="property: rotation; from:'0 0 0'; to:'0 360 0'; dur:96000; loop:true;">
+      <a-sphere id="mars" position="-8 0 7" radius="0.5" src="#mars-img" class="clickable"
+        blink-teleportation="pos: -6 0.5 7"
+        animation="property: rotation; from:'0 45 45'; to:'0 360 0'; dur:24000; loop:true;">
+      </a-sphere>
+    </a-entity>
+
+    <a-entity animation="property: rotation; from:'0 0 0'; to:'0 360 0'; dur:96000; loop:true;">
+      <a-sphere id="jupiter" position="-16 0 2" radius="1.5" src="#jupiter-img" class="clickable"
+        blink-teleportation="pos: -12 0 2"
+        animation="property: rotation; from:'0 45 45'; to:'0 360 0'; dur:24000; loop:true;">
+      </a-sphere>
+    </a-entity>
+
+    <a-entity animation="property: rotation; from:'0 0 0'; to:'0 360 0'; dur:96000; loop:true;">
+      <a-sphere id="saturn" position="-21 0 -6" radius="1.25" src="#saturn-img" class="clickable"
+        blink-teleportation="pos: -17 0 -6"
+        animation="property: rotation; from:'0 45 45'; to:'0 360 0'; dur:24000; loop:true;">
+      </a-sphere>
+      <a-circle src="#saturnRings-img" radius="30" rotation="65.3 81.8 -81.8" position="-21 0 -6" scale="0.09 0.09 0.09"
+        material="transparent: true" side="double" class="clickable" blink-teleportation="pos: -17 0 -6">
+      </a-circle>
+    </a-entity>
+
+    <a-entity animation="property: rotation; from:'0 0 0'; to:'0 360 0'; dur:96000; loop:true;">
+      <a-sphere id="uranus" position="-26 0 -15" radius="1" src="#uranus-img"
+        animation="property: rotation; from:'0 45 45'; to:'0 360 0'; dur:24000; loop:true;" class="clickable"
+        blink-teleportation="pos: -24 0 -15">
+      </a-sphere>
+    </a-entity>
+
+    <a-entity animation="property: rotation; from:'0 0 0'; to:'0 360 0'; dur:96000; loop:true;">
+      <a-sphere id="neptune" position="-24 0 -26" radius="1" src="#neptune-img" class="clickable"
+        blink-teleportation="pos: -22 0 -26"
+        animation="property: rotation; from:'0 45 45'; to:'0 360 0'; dur:24000; loop:true;">
+      </a-sphere>
+    </a-entity>
+
+    <a-sky src="#stars-img"></a-sky>
+
+    <!-- CAMERA RIG -->
+    <a-entity id="camRig" position="12 8 -12" rotation="-10 125 0">
+      <!-- CAMERA -->
+      <a-camera id="cam" wasd-controls-enabled="false">
+        <a-entity position="0 0 -3" geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.1;"
+          material="color: gray; shader: flat" cursor="fuse: true">
+          <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="backwards" from="1 1 1" to="0.1 0.1 0.1"
+            dur="1500">
+          </a-animation>
+          <a-animation begin="click" easing="ease-in" attribute="scale" dur="1500" fill="forwards" from="0.1 0.1 0.1"
+            to="1 0 1">
+          </a-animation>
+        </a-entity>
+
+        <a-entity id="info" visible="true" position="8 4 -7" geometry="primitive: plane; height: 5; width: 7"
+          material="side: double; shader: flat" color="#FFF">
+
+          <a-text id="planet_name" position="-3 1 0 " width="10" value="" color="#000">
+          </a-text>
+          <a-text id="planet_mass" position="-3 0.25 0" width="7" value="" color="#000">
+          </a-text>
+          <a-text id="planet_vol" position="-3 -0.5 0" width="7" value="" color="#000">
+          </a-text>
+          <a-text id="planet_gravity" position="-3 -1.25 0" width="7" value="" color="#000">
+          </a-text>
+        </a-entity>
+      </a-camera>
+    </a-entity>
+
+  </a-scene>
+</body>
+
+</html>
