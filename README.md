@@ -1,4 +1,4 @@
-# Entrega Global Impact - APMD - Sabesp - Mobile
+# Entrega NAC 02 - Computacao Grafica e Processamento de Imagens - Sistema Colar
 
 ## Modelagem 3D - Nave Espacial
 
